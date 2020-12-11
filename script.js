@@ -1,5 +1,9 @@
-//1
-
+// ******************************* 
+// START HERE IF YOU WANT AN EASIER STARTING POINT FOR THIS ASSIGNMENT
+// *******************************
+//
+// Module 4 Assignment Instructions.
+//
 // The idea of this assignment is to take an existing array of names
 // and then output either Hello 'Name' or Good Bye 'Name' to the console.
 // The program should say "Hello" to any name except names that start with a "J"
@@ -15,45 +19,48 @@ Hello Frank
 Hello Larry
 Hello Paula
 Hello Laura
-Good Bye Jim*/
+Good Bye Jim
+WARNING!!! WARNING!!!
+The code does NOT currently work! It is YOUR job to make it work
+as described in the requirements and the steps in order to complete this
+assignment.
+WARNING!!! WARNING!!!
+*/
 
-/*Hello speaker function*/
-const helloSpeaker = {
-	speakWord: 'Hello',	
-};
-//This says Hello
+// STEP 1: (NOTHING TO DO. ALREADY DONE FOR YOU)
+// Wrap the entire contents of script.js inside of an IIFE
+// See Lecture 52, part 2
+// (Note, Step 2 will be done in the SpeakHello.js file.)
 (function () {
-	helloSpeaker.speak = function (userName) {
-		return (helloSpeaker.speakWord + " " + userName);
-	}
-}());
 
+var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
-//2
-/*Goodbye speaker function*/
-const byeSpeaker = {
-	speakWord: 'Good Bye'
-};
+// STEP 10: (NOTHING TO DO. ALREADY DONE FOR YOU)
+// Loop over the names array and say either 'Hello' or "Good Bye"
+// using the 'speak' method or either helloSpeaker's or byeSpeaker's
+// 'speak' method.
+// See Lecture 50, part 1
+for (var i = 0; i < names.length; i++) {
 
-(function () {
-	byeSpeaker.speak = function (userName) {
-		return (byeSpeaker.speakWord + " " + userName);
-	}
-}());
+  // STEP 11: (NOTHING TO DO. ALREADY DONE FOR YOU)
+  // Retrieve the first letter of the current name in the loop.
+  // Use the string object's 'charAt' function. Since we are looking for
+  // names that start with either upper case or lower case 'J'/'j', call
+  // string object's 'toLowerCase' method on the result so we can compare
+  // to lower case character 'j' afterwards.
+  // Look up these methods on Mozilla Developer Network web site if needed.
+  var firstLetter = names[i].charAt(0).toLowerCase();
 
-//3
-//This choose the names
-(function () {
-	var names = ['Yaakov', 'John', 'Jen', 'Jason', 'Paul', 'Frank', 'Larry', 'Paula', 'Laura', 'Jim'];
-	for (var i = 0; i < names.length; i++) {
-		var name = names[i];
-		var firstLetter = name.charAt(0).toLowerCase();
-		if (firstLetter === 'j') {
-			console.log(byeSpeaker.speak(name));
-			document.write(byeSpeaker.speak(name) + '<br>');
-		} else {
-			console.log(helloSpeaker.speak(name));
-			document.write(helloSpeaker.speak(name + '<br>'));
-		}
-	}
+  // STEP 12: (NOTHING TO DO. ALREADY DONE FOR YOU)
+  // Compare the 'firstLetter' retrieved in STEP 11 to lower case
+  // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
+  // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
+  // name in the loop.
+  if (firstLetter === 'j') {
+    byeSpeaker.speak(names[i]);
+  } else {
+    helloSpeaker.speak(names[i]);
+  }
+}
+
 })();
